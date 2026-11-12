@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign up | Web Fia´o</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Wix+Madefor+Display:wght@500;800&family=Wix+Madefor+Text:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- AQUÍ SE CONECTA EL CSS -->
+  <link rel="stylesheet" href="sing.css">
+</head>
+<body>
+
+  <!-- ===== BARRA DE ARRIBA (igual en todas las páginas) ===== -->
+  <header class="header-wrap">
+    <div class="site-header">
+      <a class="brand" href="index.html" aria-label="FIA´O">FIA<span class="acute">´</span><span class="ring"></span></a>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="Credit.html">Credit</a>
+        <a href="Products.html">Products</a>
+        <a href="Client.html">Clients</a>
+        <a href="Reports.html">Reports</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ===== FIN DE LA BARRA ===== -->
+
+  <main class="signup">
+
+    <!-- Lado izquierdo -->
+    <section class="info">
+      <div class="info-inner">
+        <p class="logo">FIA<span class="tick">'</span>O</p>
+
+        <h1>Sign up for <span>free</span></h1>
+
+        <p class="intro">
+          Create your account on FIA'O and start managing your credit sales
+          easily, securely, and in an organized way.
+        </p>
+
+        <ul class="features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-3.5 3.6-5.5 8-5.5s8 2 8 5.5z"/></svg>
+            <div>
+              <h2>Fast &amp; Easy</h2>
+              <p>Create your account in just a few minutes and start using the platform.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 3v18c-4.5-1-8-4-8-9V6z" fill="currentColor"/></svg>
+            <div>
+              <h2>Secure</h2>
+              <p>We protect your business and customer information.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 19a4.5 4.5 0 0 1-.7-8.95A6 6 0 0 1 17.6 8.8 5 5 0 0 1 17.5 19z"/></svg>
+            <div>
+              <h2>Cloud-Based</h2>
+              <p>Access your information anytime, anywhere, from any device.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16"/><path d="M8 17v-4M12 17V9M16 17v-6M20 17v-8" stroke-width="2.4"/></svg>
+            <div>
+              <h2>Greater Control</h2>
+              <p>Keep track of your debits and business growth seamlessly.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Formulario -->
+    <section class="form-panel">
+      <div class="form-inner">
+        <h2 class="form-title">Create your account</h2>
+        <p class="form-sub">Complete the form to get started</p>
+
+        <form id="signup-form" novalidate>
+
+          <div class="field">
+            <label for="name">Full name *</label>
+            <input id="name" name="name" type="text" placeholder="Add your name" autocomplete="name" required>
+            <small class="msg" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address *</label>
+            <input id="email" name="email" type="email" placeholder="Add your email" autocomplete="email" required>
+            <small class="msg" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number *</label>
+            <input id="phone" name="phone" type="tel" placeholder="Add your number" autocomplete="tel" required>
+            <small class="msg" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="business">Business Name *</label>
+            <input id="business" name="business" type="text" placeholder="Ejem: Tienda Doña Carmen" autocomplete="organization" required>
+            <small class="msg" aria-live="polite"></small>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="password">Password *</label>
+              <input id="password" name="password" type="password" placeholder="Add your password" autocomplete="new-password" required>
+              <small class="msg" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="confirm">Confirm Password *</label>
+              <input id="confirm" name="confirm" type="password" placeholder="Confirm" autocomplete="new-password" required>
+              <small class="msg" aria-live="polite"></small>
+            </div>
+          </div>
+
+          <button class="submit" type="submit">Create My Account</button>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+
+          <p class="alt">Already have an account? <a href="join.html">Sign In</a></p>
+        </form>
+      </div>
+    </section>
+
+    <div class="deco-right" aria-hidden="true"></div>
+  </main>
+
+  <script>
+    const form = document.getElementById("signup-form");
+    const status = document.getElementById("status");
+
+    function setError(input, text) {
+      const field = input.closest(".field");
+      field.classList.toggle("error", Boolean(text));
+      field.querySelector(".msg").textContent = text || "";
+      return !text;
+    }
+
+    function validate() {
+      const v = id => form.elements[id];
+      let ok = true;
+      ok = setError(v("name"), v("name").value.trim().length < 2 ? "Enter your full name." : "") && ok;
+      ok = setError(v("email"), /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("email").value.trim()) ? "" : "Enter a valid email.") && ok;
+      ok = setError(v("phone"), v("phone").value.replace(/\D/g, "").length < 7 ? "Enter a valid phone number." : "") && ok;
+      ok = setError(v("business"), v("business").value.trim().length < 2 ? "Enter your business name." : "") && ok;
+      ok = setError(v("password"), v("password").value.length < 8 ? "Use at least 8 characters." : "") && ok;
+      ok = setError(v("confirm"), !v("confirm").value || v("confirm").value !== v("password").value ? "Passwords do not match." : "") && ok;
+      return ok;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      status.textContent = "";
+      if (!validate()) {
+        const first = form.querySelector(".field.error input");
+        if (first) first.focus();
+        return;
+      }
+      status.textContent = "Account created! Taking you to Login…";
+      setTimeout(() => { window.location.href = "login.html"; }, 1200);
+    });
+
+    form.addEventListener("input", function (e) {
+      if (e.target.matches("input")) setError(e.target, "");
+    });
+  </script>
+
+</body>
+</html>

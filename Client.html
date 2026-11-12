@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIA´O - Clients</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Client.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">FIA<span class="tilde">´</span><span class="o">O</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Credit.html">Credit</a>
+      <a href="Products.html">Products</a>
+      <a href="Client.html">Clients</a>
+      <a href="Reports.html">Reports</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <section class="left">
+      <h1>Client Management</h1>
+      <h2>Each client, with a clear account</h2>
+      <p class="subtitle">
+        Register your customers in seconds and see at a glance who is up to date,
+        who owes, and who to remind.
+      </p>
+      <img id="heroImg" alt="Shopkeeper showing FIA´O to a customer" class="hero-img">
+    </section>
+
+    <!-- COLUMNA DERECHA -->
+    <section class="right">
+
+      <!-- Buscador + filtros -->
+      <div class="search-card">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search client by name or phone…" autocomplete="off">
+        </div>
+        <div class="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="ontime">On Time</button>
+          <button class="chip" data-filter="pending">Pending</button>
+          <button class="chip" data-filter="overdue">Overdue</button>
+        </div>
+      </div>
+
+      <!-- Tabla -->
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Purchases</th>
+              <th>Pending Debt</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="clientsBody"></tbody>
+        </table>
+        <p id="emptyMsg" class="empty" hidden>No clients found.</p>
+      </div>
+
+      <!-- Detalle del cliente -->
+      <div class="detail-card" id="detailCard" hidden>
+        <div class="detail-header">
+          <h3 id="detailName"></h3>
+          <button class="close-btn" id="closeDetail" aria-label="Close">&times;</button>
+        </div>
+        <hr>
+        <h4>Client Profile</h4>
+        <p><strong>Phone:</strong> <span id="detailPhone"></span></p>
+        <p><strong>Status:</strong> <span id="detailStatus"></span></p>
+        <p><strong>Current Debt:</strong> <span id="detailDebt"></span></p>
+      </div>
+
+      <!-- Recordatorio automático -->
+      <div class="reminder-card" id="reminderCard">
+        <div class="reminder-text">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"></path>
+            </svg>
+            Automatic Reminder Sent
+          </h3>
+          <p>WhatsApp to Ramón Batista: "Hello Ramón, you have B/. 35.00 pending in Minisúper Doña Chela. See you soon!"</p>
+        </div>
+        <button class="sent-badge" id="sentBtn" type="button">Sent</button>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="ClientJAVA.js"></script>
+</body>
+</html>

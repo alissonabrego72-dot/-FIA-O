@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | FIA'O</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="Contact.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">FIA<span>´</span>O</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="Credit.html">Credit</a>
+      <a href="Products.html">Products</a>
+      <a href="Client.html">Clients</a>
+      <a href="Reports.html">Reports</a>
+      <a href="Contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="title">
+      <h1><i class="fa-solid fa-address-book"></i> Contact and support</h1>
+      <p class="subtitle">Have questions? We are here to help<br>Check out the FAQs below or open the chat anytime for instant support.</p>
+    </section>
+
+    <section class="content">
+
+      <!-- FAQ -->
+      <div class="faq" id="faq">
+        <div class="faq-item">
+          <button class="faq-q"><span>Does it work without internet?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Yes, you can record offline actions and they will sync automatically once you are connected again.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>How to start using the app?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Create your account, add your first customers and register a credit in just a few taps.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Do payment reminders arrive automatically?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Yes, reminders are sent automatically before and after the due date so you never miss a payment.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Can I export my reports?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>Yes, from the Reports page you can export your data to PDF or Excel.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>What if a customer doesn't pay?</span><i class="fa-solid fa-plus"></i></button>
+          <div class="faq-a"><p>The app enables automatic credit blocking so you don't extend more credit until the overdue balance is cleared or updated.</p></div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <form class="form" id="contactForm" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name">
+        <small class="error" id="errName"></small>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="yourcorreo@example.com">
+        <small class="error" id="errEmail"></small>
+
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell us how we can help you"></textarea>
+        <small class="error" id="errMessage"></small>
+
+        <button type="submit" class="btn-send">Send message</button>
+      </form>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-col brand">
+      <div class="logo">FIA<span>´</span>O</div>
+      <p>The app for shopkeepers to manage their credit lines without paper notebooks or wall markings.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="index.html">Inicio</a>
+      <a href="Client.html">Clientes</a>
+      <a href="Products.html">Productos</a>
+      <a href="Credit.html">Fiados</a>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="Reports.html">Reportes</a>
+      <a href="Contact.html">Soporte</a>
+      <a href="#faq">Preguntas frecuentes</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hola@fiao.app">hola@fiao.app</a>
+      <a href="tel:+50760000000">+507 6000-0000</a>
+    </div>
+  </footer>
+
+  <!-- CHAT -->
+  <div class="chat" id="chat">
+    <div class="chat-head">
+      <span>FIA'O Support</span>
+      <button id="chatClose" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">Hello! I am FIA'O's assistant. How can I help you today regarding reminders, reports, or credit management?</div>
+    </div>
+    <div class="chat-foot">
+      <input type="text" id="chatInput" placeholder="Type your message...">
+      <button id="chatSend" title="Send"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button class="chat-toggle" id="chatToggle" title="Open chat"><i class="fa-solid fa-comment-dots"></i></button>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+  // ===== TOAST =====
+  const toast = document.getElementById("toast");
+  function showToast(msg, ok = true) {
+    toast.innerHTML = '<i class="fa-solid ' + (ok ? 'fa-circle-check' : 'fa-circle-exclamation') + '" style="color:' + (ok ? '#16c36b' : '#ff7a85') + '"></i> ' + msg;
+    toast.classList.add("show");
+    clearTimeout(showToast.t);
+    showToast.t = setTimeout(() => toast.classList.remove("show"), 2800);
+  }
+
+  // ===== FAQ (one open at a time) =====
+  const items = document.querySelectorAll(".faq-item");
+  items.forEach(item => {
+    item.querySelector(".faq-q").addEventListener("click", () => {
+      const wasOpen = item.classList.contains("open");
+      items.forEach(i => {
+        i.classList.remove("open");
+        i.querySelector(".faq-q i").className = "fa-solid fa-plus";
+      });
+      if (!wasOpen) {
+        item.classList.add("open");
+        item.querySelector(".faq-q i").className = "fa-solid fa-xmark";
+      }
+    });
+  });
+
+  // ===== CONTACT FORM =====
+  const form = document.getElementById("contactForm");
+  const fName = document.getElementById("name");
+  const fEmail = document.getElementById("email");
+  const fMsg = document.getElementById("message");
+
+  function setError(input, id, text) {
+    document.getElementById(id).textContent = text;
+    input.classList.toggle("invalid", !!text);
+    return !text;
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const okName = setError(fName, "errName", fName.value.trim() ? "" : "Please enter your name.");
+    const okEmail = setError(fEmail, "errEmail", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fEmail.value.trim()) ? "" : "Please enter a valid email.");
+    const okMsg = setError(fMsg, "errMessage", fMsg.value.trim().length >= 5 ? "" : "Please write your message.");
+
+    if (okName && okEmail && okMsg) {
+      form.reset();
+      showToast("Message sent successfully");
+    } else {
+      showToast("Please complete the form", false);
+    }
+  });
+  [fName, fEmail, fMsg].forEach(el => el.addEventListener("input", () => {
+    el.classList.remove("invalid");
+    el.nextElementSibling.textContent = "";
+  }));
+
+  // ===== CHAT =====
+  const chat = document.getElementById("chat");
+  const chatBody = document.getElementById("chatBody");
+  const chatInput = document.getElementById("chatInput");
+  const chatToggle = document.getElementById("chatToggle");
+
+  function toggleChat(open) {
+    chat.classList.toggle("open", open);
+    chatToggle.classList.toggle("hidden", open);
+    if (open) chatInput.focus();
+  }
+  chatToggle.addEventListener("click", () => toggleChat(true));
+  document.getElementById("chatClose").addEventListener("click", () => toggleChat(false));
+
+  function addMsg(text, who) {
+    const d = document.createElement("div");
+    d.className = "msg " + who;
+    d.textContent = text;
+    chatBody.appendChild(d);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function botReply(t) {
+    t = t.toLowerCase();
+    if (/internet|offline/.test(t)) return "Yes! The app works offline and syncs when you reconnect.";
+    if (/remind|recordator|pay|pago/.test(t)) return "Payment reminders are sent automatically before and after the due date.";
+    if (/report|export|pdf|excel/.test(t)) return "You can export your reports to PDF or Excel from the Reports page.";
+    if (/credit|fiado|block/.test(t)) return "You can manage credits from the Credit page, and overdue customers get automatically blocked.";
+    if (/hello|hi|hola/.test(t)) return "Hi there! What would you like to know?";
+    return "Thanks for your message! Our team will get back to you soon at hola@fiao.app.";
+  }
+
+  function sendChat() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+    addMsg(text, "user");
+    chatInput.value = "";
+    setTimeout(() => addMsg(botReply(text), "bot"), 600);
+  }
+  document.getElementById("chatSend").addEventListener("click", sendChat);
+  chatInput.addEventListener("keydown", e => { if (e.key === "Enter") sendChat(); });
+  </script>
+</body>
+</html>

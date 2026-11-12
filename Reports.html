@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | FIA'O</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="Reports.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">FIA<span>´</span>O</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="Credit.html">Credit</a>
+      <a href="Products.html">Products</a>
+      <a href="Client.html">Clients</a>
+      <a href="Reports.html" class="active">Reports</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- TITLE -->
+    <section class="title-row">
+      <div>
+        <h1><i class="fa-solid fa-chart-pie"></i> FIA'O Reports</h1>
+        <p class="subtitle">Financial tracking, credit summaries, and business analytics overview.</p>
+      </div>
+      <div class="export-btns">
+        <button class="btn-export" id="btnPdf"><i class="fa-solid fa-file-pdf pdf"></i> Export PDF</button>
+        <button class="btn-export" id="btnExcel"><i class="fa-solid fa-file-excel excel"></i> Export Excel</button>
+      </div>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="filters">
+      <label class="label">Date Range</label>
+      <div class="date-box">
+        <i class="fa-solid fa-calendar-days cal-btn" id="openStart" title="Choose start date"></i>
+        <input type="date" id="dateStart" value="2026-07-01">
+        <span>to</span>
+        <input type="date" id="dateEnd" value="2026-07-31">
+        <i class="fa-regular fa-calendar cal-btn" id="openEnd" title="Choose end date"></i>
+      </div>
+
+      <label class="label">Customer Status / Name</label>
+      <div class="select-box">
+        <i class="fa-solid fa-users"></i>
+        <select id="customerSelect"><option value="all">All Customers (All Names)</option></select>
+      </div>
+
+      <button class="btn-apply" id="btnApply"><i class="fa-solid fa-filter"></i> Apply Filters</button>
+    </section>
+
+    <!-- STAT CARDS -->
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-top"><span>Total Active Credit</span><i class="fa-solid fa-wallet ic yellow"></i></div>
+        <h2>$1,450.00</h2>
+        <small class="up"><i class="fa-solid fa-arrow-up"></i> +8.4% from last month</small>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><span>Collected This Month</span><i class="fa-solid fa-check ic green"></i></div>
+        <h2>$3,120.50</h2>
+        <small class="up"><i class="fa-solid fa-arrow-up"></i> +12.1% efficiency</small>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><span>Pending Balances</span><i class="fa-solid fa-triangle-exclamation ic red"></i></div>
+        <h2>$340.00</h2>
+        <small class="down"><i class="fa-solid fa-arrow-down"></i> -3 accounts overdue</small>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><span>Total Customers</span><i class="fa-solid fa-address-book ic blue"></i></div>
+        <h2>48</h2>
+        <small class="up"><i class="fa-solid fa-user-plus"></i> +5 new this month</small>
+      </div>
+    </section>
+
+    <!-- CHARTS -->
+    <section class="charts">
+      <div class="card chart-card">
+        <h3>Credit Activity &amp; Payments Flow</h3>
+        <div class="legend">
+          <span><i class="dot gold"></i> Credit Issued</span>
+          <span><i class="dot green"></i> Payments Received</span>
+          <span><i class="dot red"></i> Overdue</span>
+        </div>
+        <div class="bar-chart">
+          <div class="week"><div class="bars"><div class="bar gold" style="height:45%"></div><div class="bar green" style="height:70%"></div><div class="bar red" style="height:20%"></div></div><span>Week 1</span></div>
+          <div class="week"><div class="bars"><div class="bar gold" style="height:62%"></div><div class="bar green" style="height:95%"></div><div class="bar red" style="height:30%"></div></div><span>Week 2</span></div>
+          <div class="week"><div class="bars"><div class="bar gold" style="height:35%"></div><div class="bar green" style="height:55%"></div><div class="bar red" style="height:25%"></div></div><span>Week 3</span></div>
+          <div class="week"><div class="bars"><div class="bar gold" style="height:85%"></div><div class="bar green" style="height:100%"></div><div class="bar red" style="height:40%"></div></div><span>Week 4</span></div>
+        </div>
+      </div>
+
+      <div class="card status-card">
+        <h3>Payment Status Breakdown</h3>
+
+        <div class="progress-item">
+          <div class="progress-info"><span>On Time (75%)</span><b>$2,340</b></div>
+          <div class="progress"><div class="fill green" style="width:75%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-info"><span>Pending (17%)</span><b>$540</b></div>
+          <div class="progress"><div class="fill gold" style="width:17%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-info"><span>Overdue (8%)</span><b>$240</b></div>
+          <div class="progress"><div class="fill red" style="width:8%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLE -->
+    <section class="card table-card">
+      <h3>Recent Credit Transactions</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Customer Name</th><th>Description</th><th>Amount</th><th>Date</th><th>Status</th></tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+
+  </main>
+  <div class="toast" id="toast"></div>
+  <script>
+// ===== DATA =====
+const transactions = [
+  { name: "Maria Gomez",     desc: "Grocery items & supplies", amount: 45.00,  date: "2026-07-28", status: "On Time" },
+  { name: "Carlos Mendoza",  desc: "Weekly hardware credit",   amount: 120.00, date: "2026-07-25", status: "Pending" },
+  { name: "Ana Ruiz",        desc: "Bakery stock order",       amount: 85.50,  date: "2026-07-18", status: "Overdue" },
+  { name: "Luis Torres",     desc: "Cleaning products",        amount: 60.00,  date: "2026-07-17", status: "On Time" },
+  { name: "Rosa Diaz",       desc: "School supplies",          amount: 38.75,  date: "2026-07-16", status: "On Time" },
+  { name: "Pedro Castillo",  desc: "Bulk rice & beans",        amount: 150.00, date: "2026-07-16", status: "Pending" },
+  { name: "Carmen Morales",  desc: "Fresh produce supply",     amount: 92.00,  date: "2026-07-15", status: "On Time" },
+  { name: "Jorge Ramirez",   desc: "Electrical hardware",      amount: 210.00, date: "2026-07-12", status: "Pending" }
+];
+
+const PER_PAGE = 3;
+let filtered = [...transactions];
+let currentPage = 1;
+
+// ===== ELEMENTS =====
+const tableBody  = document.getElementById("tableBody");
+const pagination = document.getElementById("pagination");
+const dateStart  = document.getElementById("dateStart");
+const dateEnd    = document.getElementById("dateEnd");
+const customerSel = document.getElementById("customerSelect");
+const toast      = document.getElementById("toast");
+
+// ===== HELPERS =====
+const badgeClass = s => ({ "On Time": "ok", "Pending": "pending", "Overdue": "overdue" }[s]);
+const money = n => "$" + n.toFixed(2);
+
+function showToast(msg) {
+  toast.innerHTML = '<i class="fa-solid fa-circle-check"></i>' + msg;
+  toast.classList.add("show");
+  clearTimeout(showToast.t);
+  showToast.t = setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+// ===== CUSTOMER SELECT =====
+[...new Set(transactions.map(t => t.name))].forEach(n => {
+  const o = document.createElement("option");
+  o.value = n; o.textContent = n;
+  customerSel.appendChild(o);
+});
+
+// ===== RENDER TABLE =====
+function renderTable() {
+  const start = (currentPage - 1) * PER_PAGE;
+  const rows = filtered.slice(start, start + PER_PAGE);
+
+  tableBody.innerHTML = rows.length
+    ? rows.map(t => `
+      <tr>
+        <td><b>${t.name}</b></td>
+        <td>${t.desc}</td>
+        <td>${money(t.amount)}</td>
+        <td>${t.date}</td>
+        <td><span class="badge ${badgeClass(t.status)}">${t.status}</span></td>
+      </tr>`).join("")
+    : '<tr><td colspan="5" class="empty">No transactions found for these filters.</td></tr>';
+
+  renderPagination();
+}
+
+// ===== PAGINATION =====
+function renderPagination() {
+  const pages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+  pagination.innerHTML = "";
+  for (let i = 1; i <= pages; i++) {
+    const b = document.createElement("button");
+    b.className = "page" + (i === currentPage ? " active" : "");
+    b.textContent = i;
+    b.addEventListener("click", () => { currentPage = i; renderTable(); });
+    pagination.appendChild(b);
+  }
+}
+
+// ===== CALENDAR ICONS =====
+function openPicker(input) {
+  if (input.showPicker) input.showPicker(); else input.focus();
+}
+document.getElementById("openStart").addEventListener("click", () => openPicker(dateStart));
+document.getElementById("openEnd").addEventListener("click", () => openPicker(dateEnd));
+dateStart.addEventListener("click", () => openPicker(dateStart));
+dateEnd.addEventListener("click", () => openPicker(dateEnd));
+
+// ===== APPLY FILTERS =====
+document.getElementById("btnApply").addEventListener("click", () => {
+  const from = dateStart.value, to = dateEnd.value, who = customerSel.value;
+
+  if (from && to && from > to) {
+    showToast("Start date must be before end date");
+    return;
+  }
+
+  filtered = transactions.filter(t =>
+    (!from || t.date >= from) &&
+    (!to || t.date <= to) &&
+    (who === "all" || t.name === who)
+  );
+  currentPage = 1;
+  renderTable();
+  showToast("Filters applied (" + filtered.length + " results)");
+});
+
+// ===== EXPORT EXCEL (CSV opens in Excel) =====
+document.getElementById("btnExcel").addEventListener("click", () => {
+  const header = ["Customer Name", "Description", "Amount", "Date", "Status"];
+  const esc = v => '"' + String(v).replace(/"/g, '""') + '"';
+  const lines = [header, ...filtered.map(t => [t.name, t.desc, t.amount.toFixed(2), t.date, t.status])]
+    .map(r => r.map(esc).join(","));
+
+  const blob = new Blob(["\ufeff" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "FIAO_Reports.csv";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+  showToast("Excel exported successfully");
+});
+
+// ===== EXPORT PDF (print dialog -> Save as PDF) =====
+document.getElementById("btnPdf").addEventListener("click", () => {
+  // show all rows so the PDF has the full table
+  const saved = currentPage;
+  const full = filtered;
+  tableBody.innerHTML = full.map(t => `
+    <tr>
+      <td><b>${t.name}</b></td><td>${t.desc}</td><td>${money(t.amount)}</td>
+      <td>${t.date}</td><td><span class="badge ${badgeClass(t.status)}">${t.status}</span></td>
+    </tr>`).join("");
+  window.print();
+  currentPage = saved;
+  renderTable();
+});
+
+// ===== INIT =====
+renderTable();
+
+  </script>
+</body>
+</html>

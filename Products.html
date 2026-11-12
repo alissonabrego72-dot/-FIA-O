@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIA'O - Inventory</title>
+<link rel="stylesheet" href="Products.css">
+<style>
+    /* Hace toda la página más pequeña */
+    body {
+        zoom: 0.8;
+    }
+
+    /* Letra cuando un producto no tiene foto */
+    .product-placeholder {
+        color: #b71920;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Ventana de confirmación para eliminar */
+    #deleteModal {
+        background-color: rgba(30, 15, 10, 0.7);
+    }
+    .confirm-box {
+        max-width: 440px;
+        padding: 32px 28px 26px;
+        border: 2px solid #b71920;
+        text-align: center;
+        box-shadow: 0 14px 50px rgba(0, 0, 0, 0.45);
+    }
+    .confirm-box h2 {
+        color: #b71920;
+        font-size: 26px;
+    }
+    .confirm-box p {
+        margin-bottom: 24px;
+        font-size: 17px;
+        line-height: 1.5;
+    }
+    .confirm-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .confirm-actions button {
+        min-height: 46px;
+        border: 1px solid #ff9f00;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #542e1c;
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .confirm-actions .danger-btn {
+        background: #b71920;
+        border-color: #b71920;
+        color: #ffffff;
+    }
+    .confirm-actions .danger-btn:hover {
+        background: #92141a;
+    }
+</style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <header class="navbar">
+        <div class="logo">FIA<span>'O</span></div>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-button">Home</a>
+            <a href="Credit.html" class="nav-button">Credit</a>
+            <a href="Products.html" class="nav-button">Products</a>
+            <a href="Client.html" class="nav-button">Clients</a>
+            <a href="Reports.html" class="nav-button">Reports</a>
+            <a href="contacto.html" class="nav-button">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="main-container">
+
+        <!-- Pestañas -->
+        <div class="tabs">
+            <button class="tab active" id="inventoryTab">Inventory</button>
+            <button class="tab" id="saleTab">Register Fiado Sale</button>
+        </div>
+
+        <!-- Sección de inventario -->
+        <section id="inventorySection">
+
+            <div class="section-header">
+                <h1>Your inventory, always exact</h1>
+                <p>Showing core products and add option. Use search bar to look up items.</p>
+            </div>
+
+            <div class="search-container">
+                <input type="search" id="searchInput" placeholder="Search products..." aria-label="Search products">
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+
+                <article class="product-card" data-name="Sugar">
+                    <div class="product-info">
+                        <div class="product-image"><img src="imagen/sugar.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Sugar_2xmacro.jpg?width=200" alt="Sugar"></div>
+                        <div class="product-details">
+                            <span class="category">Pantry</span>
+                            <h3>Sugar</h3>
+                            <p class="price">B/. 0.85</p>
+                        </div>
+                    </div>
+                    <div class="stock"><span>Stock:</span><strong>25 lb</strong></div>
+                    <div class="card-actions">
+                        <button class="edit-btn" onclick="editProduct(this)">✎ Edit</button>
+                        <button class="delete-btn" onclick="deleteProduct(this)">▣ Delete</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Rice">
+                    <div class="product-info">
+                        <div class="product-image"><img src="imagen/rice.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/US_long_grain_rice.jpg?width=200" alt="Rice"></div>
+                        <div class="product-details">
+                            <span class="category">Pantry</span>
+                            <h3>Rice</h3>
+                            <p class="price">B/. 0.95</p>
+                        </div>
+                    </div>
+                    <div class="stock"><span>Stock:</span><strong>38 lb</strong></div>
+                    <div class="card-actions">
+                        <button class="edit-btn" onclick="editProduct(this)">✎ Edit</button>
+                        <button class="delete-btn" onclick="deleteProduct(this)">▣ Delete</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="White Bread">
+                    <div class="product-info">
+                        <div class="product-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/White_bread.jpg?width=200" alt="White Bread"></div>
+                        <div class="product-details">
+                            <span class="category">Bakery</span>
+                            <h3>White Bread</h3>
+                            <p class="price">B/. 1.50</p>
+                        </div>
+                    </div>
+                    <div class="stock"><span>Stock:</span><strong>12 Unit</strong></div>
+                    <div class="card-actions">
+                        <button class="edit-btn" onclick="editProduct(this)">✎ Edit</button>
+                        <button class="delete-btn" onclick="deleteProduct(this)">▣ Delete</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Coca Cola 2L">
+                    <div class="product-info">
+                        <div class="product-image"><img src="imagen/cocacola.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/15-09-26-RalfR-WLC-0098_-_Coca-Cola_glass_bottle_(Germany).jpg?width=200" alt="Coca Cola bottle"></div>
+                        <div class="product-details">
+                            <span class="category">Beverages</span>
+                            <h3>Coca Cola 2L</h3>
+                            <p class="price">B/. 2.10</p>
+                        </div>
+                    </div>
+                    <div class="stock"><span>Stock:</span><strong>20 Bottle</strong></div>
+                    <div class="card-actions">
+                        <button class="edit-btn" onclick="editProduct(this)">✎ Edit</button>
+                        <button class="delete-btn" onclick="deleteProduct(this)">▣ Delete</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-name="Eggs (Dozen)">
+                    <div class="product-info">
+                        <div class="product-image"><img src="imagen/eggs.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/6-Pack-Chicken-Eggs.jpg?width=200" alt="Eggs"></div>
+                        <div class="product-details">
+                            <span class="category">Dairy</span>
+                            <h3>Eggs (Dozen)</h3>
+                            <p class="price">B/. 3.20</p>
+                        </div>
+                    </div>
+                    <div class="stock"><span>Stock:</span><strong>15 Pack</strong></div>
+                    <div class="card-actions">
+                        <button class="edit-btn" onclick="editProduct(this)">✎ Edit</button>
+                        <button class="delete-btn" onclick="deleteProduct(this)">▣ Delete</button>
+                    </div>
+                </article>
+
+                <!-- Agregar producto -->
+                <button class="add-product-card" id="addProductBtn">
+                    <span class="plus">+</span>
+                    <strong>Add New Product</strong>
+                    <small>Create a new item</small>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Formulario para registrar venta fiada -->
+        <section id="saleSection" class="hidden">
+
+            <h1>Register Fiado Sale</h1>
+            <p>Register a sale and assign it to a client.</p>
+
+            <form id="saleForm">
+                <label for="saleClient">Client name</label>
+                <input type="text" id="saleClient" placeholder="Enter client name" required>
+
+                <label for="saleProduct">Product</label>
+                <select id="saleProduct" required>
+                    <option value="">Select a product</option>
+                </select>
+
+                <label for="saleQuantity">Quantity</label>
+                <input type="number" id="saleQuantity" min="1" value="1" required>
+
+                <button type="submit" class="primary-btn">Register Sale</button>
+            </form>
+
+            <h2>Registered Sales</h2>
+            <div id="salesList"></div>
+        </section>
+
+    </main>
+
+    <!-- Ventana para agregar o editar productos -->
+    <div class="modal hidden" id="productModal">
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeModal" aria-label="Close">&times;</button>
+
+            <h2 id="modalTitle">Add New Product</h2>
+
+            <form id="productForm">
+
+                <label for="productName">Product name</label>
+                <input type="text" id="productName" placeholder="Example: Milk" required>
+
+                <label for="productCategory">Category</label>
+                <select id="productCategory" required>
+                    <option value="">Select category</option>
+                    <option>Pantry</option>
+                    <option>Bakery</option>
+                    <option>Beverages</option>
+                    <option>Dairy</option>
+                    <option>Fruits</option>
+                    <option>Vegetables</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="productPrice">Price (B/.)</label>
+                <input type="number" id="productPrice" min="0" step="0.01" required>
+
+                <label for="productStock">Stock quantity</label>
+                <input type="number" id="productStock" min="0" step="1" required>
+
+                <label for="productUnit">Unit</label>
+                <select id="productUnit" required>
+                    <option value="Unit">Unit</option>
+                    <option value="lb">lb</option>
+                    <option value="Bottle">Bottle</option>
+                    <option value="Pack">Pack</option>
+                    <option value="Dozen">Dozen</option>
+                </select>
+
+                <button type="submit" class="primary-btn">Save Product</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Ventana para confirmar eliminación -->
+    <div class="modal hidden" id="deleteModal">
+        <div class="modal-content confirm-box">
+            <h2>Delete product</h2>
+            <p id="deleteMessage"></p>
+            <div class="confirm-actions">
+                <button type="button" id="cancelDelete">Cancel</button>
+                <button type="button" class="danger-btn" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="ProductsJS.js"></script>
+</body>
+</html>

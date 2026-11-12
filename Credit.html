@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIA'O - Credit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="Credit.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="logo">FIA<span>´O</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Credit.html">Credit</a></li>
+      <li><a href="Products.html">Products</a></li>
+      <li><a href="Client.html">Clients</a></li>
+      <li><a href="Reports.html">Reports</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="topbar">
+  <div class="notif-wrap">
+    <button class="icon-btn" id="bellBtn" aria-label="Notifications">
+      <i class="fa-solid fa-bell"></i><span class="badge" id="badge">3</span>
+    </button>
+    <div class="notif-panel" id="notifPanel">
+      <div class="notif-head"><h4>Notifications</h4><button id="markRead">Mark read</button></div>
+      <p>• Ramón Batista paid B/. 15.00 today.</p>
+      <p>• Carlos Gómez registered a new debt of B/. 12.50.</p>
+      <p>• Ana Martínez payment received successfully.</p>
+    </div>
+  </div>
+</div>
+
+<main class="hero">
+  <h1>Debts <span>&amp;</span> Payments</h1>
+  <p class="sub">Manage customer debts, register payments, and track balances easily.</p>
+
+  <div class="grid">
+    <!-- Columna izquierda -->
+    <div class="col">
+      <section class="card">
+        <label class="card-label" for="customer"><i class="fa-solid fa-user"></i> Select a Customer</label>
+        <select id="customer"></select>
+      </section>
+
+      <section class="card">
+        <h2 class="cust-name"><i class="fa-solid fa-circle-user"></i> <span id="custName"></span></h2>
+        <div class="stats">
+          <div class="stat"><small>Current Debt</small><b id="curDebt"></b></div>
+          <div class="stat"><small>Credit Limit</small><b id="curLimit"></b></div>
+        </div>
+        <div class="bar"><div id="barFill"></div></div>
+        <div class="bar-info"><span id="used"></span><span id="limitTxt"></span></div>
+      </section>
+
+      <section class="card block">
+        <div>
+          <h3><i class="fa-solid fa-shield-halved"></i> Automatic Blocking</h3>
+          <p>If a customer exceeds the debt limit, system prevents new credits.</p>
+        </div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+      </section>
+    </div>
+
+    <!-- Columna central -->
+    <div class="col">
+      <section class="card">
+        <h2>Debt History</h2>
+        <p class="muted">Track all purchases and payments.</p>
+        <div class="list" id="history"></div>
+        <a href="#" class="link" id="fullHistory">View Full History →</a>
+      </section>
+
+      <section class="card">
+        <h2>Register Payment</h2>
+        <p class="muted">Record payments made by the customer.</p>
+        <label class="field-label" for="amount">Payment Amount</label>
+        <input type="number" step="0.01" id="amount" placeholder="B/. 0.00">
+        <p class="field-label">Payment Type</p>
+        <div class="radios">
+          <label><input type="radio" name="ptype" value="partial" checked><span>Partial Payment</span></label>
+          <label><input type="radio" name="ptype" value="full"><span>Full Payment</span></label>
+        </div>
+        <div class="btns">
+          <button class="btn primary" id="regBtn">Register Payment</button>
+          <button class="btn" id="paidBtn">Mark as Paid</button>
+        </div>
+        <div class="success" id="success"><i class="fa-solid fa-circle-check"></i> Payment registered successfully</div>
+      </section>
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="col">
+      <section class="card">
+        <h2>Recent Activity</h2>
+        <ul class="activity">
+          <li><span class="ic"><i class="fa-solid fa-wallet"></i></span>
+            <div><b>Ramón Batista</b><small>Paid B/. 15.00</small></div><em>Today <i class="dot green"></i></em></li>
+          <li><span class="ic"><i class="fa-solid fa-cart-shopping"></i></span>
+            <div><b>Carlos Gómez</b><small>New debt: B/. 12.50</small></div><em>Yesterday <i class="dot amber"></i></em></li>
+          <li><span class="ic"><i class="fa-solid fa-money-bill-transfer"></i></span>
+            <div><b>Ana Martínez</b><small>Payment received: B/. 20.00</small></div><em>Yesterday <i class="dot green"></i></em></li>
+        </ul>
+        <a href="#" class="link">View all activity →</a>
+      </section>
+
+      <section class="card">
+        <h2>Debt Overview</h2>
+        <div class="overview">
+          <div class="stat"><small>Outstanding Debt</small><b>B/. 480.00</b></div>
+          <div class="stat"><small>Payments Today</small><b>B/. 150.00</b></div>
+          <div class="stat"><small>Customers with Debt</small><b>18</b></div>
+          <div class="stat"><small>Overdue</small><b>4</b></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer>© 2026. Manage today for a better tomorrow.</footer>
+</main>
+
+<!-- Modal historial completo -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Full History</h3><button id="closeModal" aria-label="Close">&times;</button></div>
+    <div class="list" id="modalList"></div>
+  </div>
+</div>
+
+<script>
+const customers = {
+  "Ramón Batista":  { debt: 35, limit: 100, h: [
+    ["14","JUL","Milk (2)","Fiado",8.00,"pending"],
+    ["09","JUL","Detergent","Fiado",4.50,"pending"],
+    ["05","JUL","Payment Received","Abono",-20.00,"paid"],
+    ["01","JUL","Groceries Pack","Fiado",50.50,"pending"]]},
+  "Carlos Gómez":   { debt: 12.5, limit: 100, h: [["16","JUL","New debt","Fiado",12.50,"pending"]]},
+  "Ana Martínez":   { debt: 0, limit: 150, h: [["15","JUL","Payment Received","Abono",-20.00,"paid"]]},
+  "Yolanda Pérez":  { debt: 20, limit: 80, h: [
+    ["18","JUL","Full Payment","Pago",-20.00,"paid"],
+    ["10","JUL","Bread x4","Fiado",8.40,"pending"]]}
+};
+const $ = id => document.getElementById(id);
+const money = n => "B/. " + n.toFixed(2);
+const sel = $("customer");
+Object.keys(customers).forEach(n => sel.add(new Option(n, n)));
+sel.value = "Ramón Batista";
+
+function row(x, modal){
+  const neg = x[4] < 0;
+  const icon = x[3] === "Fiado" ? "fa-cart-shopping" : "fa-money-bill-transfer";
+  const st = modal ? x[5] : x[5][0].toUpperCase() + x[5].slice(1);
+  return `<div class="item"><div class="date"><b>${x[0]}</b><span>${x[1]}</span></div>
+    <span class="ic"><i class="fa-solid ${icon}"></i></span>
+    <div class="what"><b>${x[2]}</b><small>${x[3]}</small></div>
+    <strong class="amt ${neg ? "neg" : ""}">${neg ? "-" : ""}B/. ${Math.abs(x[4]).toFixed(2)}</strong>
+    <span class="tag ${x[5]}">${st}</span></div>`;
+}
+function render(){
+  const c = customers[sel.value];
+  $("custName").textContent = sel.value;
+  $("curDebt").textContent = money(c.debt);
+  $("curLimit").textContent = money(c.limit);
+  const pct = Math.round(c.debt / c.limit * 100);
+  $("barFill").style.width = pct + "%";
+  $("used").textContent = pct + "% used";
+  $("limitTxt").textContent = "Limit: " + money(c.limit);
+  $("history").innerHTML = c.h.map(x => row(x,false)).join("");
+  $("modalList").innerHTML = c.h.map(x => row(x,true)).join("");
+}
+sel.addEventListener("change", render);
+render();
+
+function pay(full){
+  const c = customers[sel.value];
+  let v = parseFloat($("amount").value);
+  if (full) v = c.debt;
+  if (!v || v <= 0) return;
+  v = Math.min(v, c.debt || v);
+  c.debt = Math.max(0, +(c.debt - v).toFixed(2));
+  const d = new Date();
+  c.h.unshift([String(d.getDate()).padStart(2,"0"), d.toLocaleString("en",{month:"short"}).toUpperCase(),
+               "Payment Received","Abono",-v,"paid"]);
+  $("amount").value = "";
+  render();
+  $("success").style.display = "flex";
+  setTimeout(() => $("success").style.display = "none", 2500);
+}
+$("regBtn").onclick = () => pay(document.querySelector('input[name=ptype]:checked').value === "full");
+$("paidBtn").onclick = () => pay(true);
+
+$("fullHistory").onclick = e => { e.preventDefault(); $("overlay").classList.add("open"); };
+$("closeModal").onclick = () => $("overlay").classList.remove("open");
+$("overlay").onclick = e => { if (e.target === $("overlay")) $("overlay").classList.remove("open"); };
+
+$("bellBtn").onclick = e => { e.stopPropagation(); $("notifPanel").classList.toggle("open"); };
+document.addEventListener("click", e => { if (!e.target.closest(".notif-panel")) $("notifPanel").classList.remove("open"); });
+$("markRead").onclick = () => { $("badge").style.display = "none"; };
+</script>
+</body>
+</html>

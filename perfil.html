@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIA'O - Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+<!-- Iconos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20v-1a6.5 6.5 0 0 1 13 0v1"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18.5 14a6.5 6.5 0 0 1 3 5.5V20"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/><path d="m7.5 5.5 9 5"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/><path d="M6 15h4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 3v17a1 1 0 0 0 1 1h16"/><path d="M9 17v-6"/><path d="M14 17V7"/><path d="M19 17v-4"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a1 1 0 0 1 1 1v3"/><path d="M3 5v14a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-3"/><path d="M20 12v4h-4a2 2 0 0 1 0-4z"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5 12.5V20h14v-7.5"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5z"/><path d="m15 5 4 4"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7.5 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.9l-4.6 4.2"/><path d="m2 15 6 6"/><circle cx="16" cy="7" r="3"/></symbol>
+</svg>
+
+<!-- ===== Barra superior ===== -->
+<header class="topbar-wrap">
+  <div class="topbar">
+    <a class="logo" href="index.html">FIA<span>´O</span></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="Credit.html">Credit</a>
+      <a href="Products.html">Products</a>
+      <a href="Client.html">Clients</a>
+      <a href="Reports.html">Reports</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- Bienvenida + usuario -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow">FIA'O</div>
+      <h1>Welcome, <span class="js-name">Ana Rodriguez</span></h1>
+      <p>Everything you need to manage your business is right here.</p>
+    </div>
+
+    <div class="user-wrap" id="userWrap">
+      <button class="user-chip" id="userBtn" aria-haspopup="true">
+        <span class="avatar js-avatar"><svg><use href="#i-user"/></svg></span>
+        <span class="user-text"><strong class="js-name">Ana Rodriguez</strong><small class="js-store">Mini Super Ana</small></span>
+        <svg class="chev"><use href="#i-down"/></svg>
+      </button>
+
+      <div class="menu" id="menu">
+        <div class="menu-name js-name">Ana Rodriguez</div>
+        <button data-open="mProfile"><svg><use href="#i-user"/></svg>My Profile</button>
+        <button data-open="mEdit"><svg><use href="#i-pencil"/></svg>Edit Profile</button>
+        <button data-open="mPhoto"><svg><use href="#i-camera"/></svg>Change Profile Picture</button>
+        <hr>
+        <button data-open="mNotif"><svg><use href="#i-bell"/></svg>Notifications</button>
+        <button data-open="mSettings"><svg><use href="#i-gear"/></svg>Settings</button>
+        <hr>
+        <button class="logout" id="logout"><svg><use href="#i-logout"/></svg>Log Out</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accesos -->
+  <section class="cards">
+    <a class="card" href="#"><span class="tile"><svg><use href="#i-users"/></svg></span><div><h3>Customers</h3><p>Manage customer information and debts.</p></div></a>
+    <a class="card" href="#"><span class="tile"><svg><use href="#i-box"/></svg></span><div><h3>Products</h3><p>Manage inventory and product prices.</p></div></a>
+    <a class="card" href="#"><span class="tile"><svg><use href="#i-card"/></svg></span><div><h3>Credits &amp; Payments</h3><p>Register credits, payments and customer balances.</p></div></a>
+    <a class="card" href="#"><span class="tile"><svg><use href="#i-chart"/></svg></span><div><h3>Reports</h3><p>View statistics and financial reports.</p></div></a>
+  </section>
+
+  <!-- Estadísticas -->
+  <h2 class="section">Quick Statistics</h2>
+  <section class="stats">
+    <div class="stat"><span class="tile"><svg><use href="#i-users"/></svg></span><strong>128</strong><span>Customers</span></div>
+    <div class="stat"><span class="tile"><svg><use href="#i-box"/></svg></span><strong>254</strong><span>Products</span></div>
+    <div class="stat"><span class="tile"><svg><use href="#i-wallet"/></svg></span><strong>B/. 1,250</strong><span>Credits</span></div>
+    <div class="stat"><span class="tile"><svg><use href="#i-cash"/></svg></span><strong>B/. 320</strong><span>Payments today</span></div>
+  </section>
+
+  <!-- Actividad -->
+  <section class="activity">
+    <h2>Recent Activity</h2>
+    <div class="row"><span class="ico green"><svg><use href="#i-cash"/></svg></span><div class="info"><b>John Smith</b><span>Payment received</span></div><time>Today • B/.25</time></div>
+    <div class="row"><span class="ico pink"><svg><use href="#i-hand"/></svg></span><div class="info"><b>Maria Lopez</b><span>New credit registered</span></div><time>Today • B/.18</time></div>
+    <div class="row"><span class="ico amber"><svg><use href="#i-bell"/></svg></span><div class="info"><b>Carlos Perez</b><span>Debt reminder sent</span></div><time>Yesterday</time></div>
+  </section>
+</main>
+
+<!-- Botón flotante del chat -->
+<button class="fab" data-open="mChat" aria-label="Open assistant"><svg><use href="#i-chat"/></svg></button>
+
+<!-- ===== MODALES ===== -->
+
+<!-- My Profile -->
+<div class="overlay" id="mProfile">
+  <div class="modal center">
+    <button class="close" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <div class="avatar js-avatar"><svg><use href="#i-user"/></svg></div>
+    <h3>My Profile</h3>
+    <div class="info-field"><svg><use href="#i-user"/></svg><div><small>Full Name</small><b class="js-name">Ana Rodriguez</b></div></div>
+    <div class="info-field"><svg><use href="#i-store"/></svg><div><small>Store Name</small><b class="js-store">Mini Super Ana</b></div></div>
+    <div class="info-field"><svg><use href="#i-mail"/></svg><div><small>Email</small><b class="js-email">ana@fiao.com</b></div></div>
+    <div class="info-field"><svg><use href="#i-phone"/></svg><div><small>Phone</small><b class="js-phone">+507 6000-0000</b></div></div>
+  </div>
+</div>
+
+<!-- Edit Profile -->
+<div class="overlay" id="mEdit">
+  <form class="modal" id="editForm">
+    <button type="button" class="close" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <h3 class="left">Edit Profile</h3>
+    <label for="eName">Full Name</label>
+    <input type="text" id="eName" value="Ana Rodriguez" required>
+    <label for="eStore">Store Name</label>
+    <input type="text" id="eStore" value="Mini Super Ana" required>
+    <label for="eEmail">Email</label>
+    <input type="email" id="eEmail" value="ana@fiao.com" required>
+    <label for="ePhone">Phone</label>
+    <input type="tel" id="ePhone" value="+507 6000-0000">
+    <div class="actions">
+      <button type="button" class="btn-cancel" data-close>Cancel</button>
+      <button type="submit" class="btn-save">Save</button>
+    </div>
+  </form>
+</div>
+
+<!-- Change Profile Picture -->
+<div class="overlay" id="mPhoto">
+  <div class="modal center">
+    <button class="close" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <h3 style="margin-bottom:20px">Change Profile Picture</h3>
+    <div class="avatar photo-preview js-avatar" id="photoPreview"><svg><use href="#i-user"/></svg></div>
+    <label class="file-btn"><svg><use href="#i-camera"/></svg>Choose photo<input type="file" id="photoInput" accept="image/*"></label>
+    <div class="actions">
+      <button type="button" class="btn-cancel" data-close>Cancel</button>
+      <button type="button" class="btn-save" id="photoSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Notifications -->
+<div class="overlay" id="mNotif">
+  <div class="modal">
+    <button class="close" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <div class="big-tile"><svg><use href="#i-bell"/></svg></div>
+    <h3 class="left">Notifications</h3>
+    <div class="notif"><span class="ico"><svg><use href="#i-bell"/></svg></span><p><b>John Smith</b> sent you a payment confirmation</p><small>2h</small></div>
+    <div class="notif"><span class="ico"><svg><use href="#i-bell"/></svg></span><p><b>Maria Lopez</b> requested a credit extension</p><small>5h</small></div>
+  </div>
+</div>
+
+<!-- System Settings -->
+<div class="overlay" id="mSettings">
+  <form class="modal" id="settingsForm">
+    <button type="button" class="close" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <div class="big-tile"><svg><use href="#i-gear"/></svg></div>
+    <h3 class="left">System Settings</h3>
+    <label for="sCur">Currency / Region</label>
+    <select id="sCur">
+      <option>Balboas / US Dollars (B/. / $)</option>
+      <option>Colombian Pesos (COP)</option>
+      <option>Costa Rican Colones (CRC)</option>
+    </select>
+    <label for="sTz">Time Zone</label>
+    <select id="sTz">
+      <option>(GMT-05:00) Panama</option>
+      <option>(GMT-05:00) Bogota / Lima</option>
+      <option>(GMT-06:00) Costa Rica</option>
+    </select>
+    <div class="check-row"><span>Alert Sounds</span><input type="checkbox" id="sSound" checked></div>
+    <div class="actions">
+      <button type="button" class="btn-cancel" data-close>Cancel</button>
+      <button type="submit" class="btn-save">Save</button>
+    </div>
+  </form>
+</div>
+
+<!-- Chat -->
+<div class="overlay" id="mChat">
+  <div class="modal chat">
+    <div class="chat-head">
+      <span class="ico"><svg><use href="#i-chat"/></svg></span>
+      <div><b>FIA'O Assistant</b><small>Online</small></div>
+    </div>
+    <button class="close" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    <div class="chat-body" id="chatBody">
+      <div class="bubble">Hi <span class="js-name">Ana Rodriguez</span>! I'm FIA'O, your business assistant. How can I help you today?</div>
+    </div>
+    <form class="chat-foot" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off">
+      <button type="submit" aria-label="Send"><svg><use href="#i-send"/></svg></button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ---- Menú del usuario ---- */
+  var wrap = $('#userWrap');
+  $('#userBtn').addEventListener('click', function (e) { e.stopPropagation(); wrap.classList.toggle('open'); });
+  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) wrap.classList.remove('open'); });
+
+  /* ---- Abrir / cerrar modales ---- */
+  function openModal(id) {
+    closeAll();
+    $('#' + id).classList.add('show');
+    document.body.classList.add('no-scroll');
+    wrap.classList.remove('open');
+    if (id === 'mChat') setTimeout(function () { $('#chatInput').focus(); }, 50);
+  }
+  function closeAll() {
+    $$('.overlay.show').forEach(function (o) { o.classList.remove('show'); });
+    document.body.classList.remove('no-scroll');
+  }
+  $$('[data-open]').forEach(function (b) {
+    b.addEventListener('click', function () { openModal(b.getAttribute('data-open')); });
+  });
+  $$('[data-close]').forEach(function (b) { b.addEventListener('click', closeAll); });
+  $$('.overlay').forEach(function (o) {
+    o.addEventListener('mousedown', function (e) { if (e.target === o) closeAll(); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeAll(); wrap.classList.remove('open'); } });
+
+  /* ---- Aviso ---- */
+  var toastTimer;
+  function toast(msg) {
+    var t = $('#toast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove('show'); }, 2200);
+  }
+  function setAll(sel, text) { $$(sel).forEach(function (el) { el.textContent = text; }); }
+
+  /* ---- Editar perfil ---- */
+  $('#editForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    setAll('.js-name', $('#eName').value.trim());
+    setAll('.js-store', $('#eStore').value.trim());
+    setAll('.js-email', $('#eEmail').value.trim());
+    setAll('.js-phone', $('#ePhone').value.trim());
+    closeAll(); toast('Profile updated');
+  });
+
+  /* ---- Foto de perfil ---- */
+  var pendingPhoto = null;
+  $('#photoInput').addEventListener('change', function () {
+    var f = this.files && this.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      pendingPhoto = r.result;
+      $('#photoPreview').innerHTML = '<img src="' + pendingPhoto + '" alt="">';
+    };
+    r.readAsDataURL(f);
+  });
+  $('#photoSave').addEventListener('click', function () {
+    if (pendingPhoto) {
+      $$('.js-avatar').forEach(function (a) { a.innerHTML = '<img src="' + pendingPhoto + '" alt="">'; });
+      toast('Profile picture updated');
+    }
+    closeAll();
+  });
+
+  /* ---- Configuración ---- */
+  $('#settingsForm').addEventListener('submit', function (e) {
+    e.preventDefault(); closeAll(); toast('Settings saved');
+  });
+
+  /* ---- Chat ---- */
+  var replies = [
+    'Got it! I can help you with customers, products, credits and payments.',
+    'Sure! Open the section you need from the cards on this page.',
+    'Noted. Is there anything else you need?'
+  ];
+  var n = 0;
+  $('#chatForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var inp = $('#chatInput'), txt = inp.value.trim();
+    if (!txt) return;
+    var body = $('#chatBody');
+    var me = document.createElement('div'); me.className = 'bubble me'; me.textContent = txt; body.appendChild(me);
+    inp.value = ''; body.scrollTop = body.scrollHeight;
+    setTimeout(function () {
+      var b = document.createElement('div'); b.className = 'bubble'; b.textContent = replies[n++ % replies.length];
+      body.appendChild(b); body.scrollTop = body.scrollHeight;
+    }, 600);
+  });
+
+  /* ---- Cerrar sesión ---- */
+  $('#logout').addEventListener('click', function () { window.location.href = 'index.html'; });
+})();
+</script>
+</body>
+</html>
